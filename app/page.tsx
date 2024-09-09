@@ -2,12 +2,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+import Logo from "@/public/jikoo-logo.svg";
+import Delivery from "@/public/jikoo-waitlist.jpg";
+
 export default function Component() {
   return (
-    <div className="bg-[#009933] text-white min-h-[100dvh]">
-      <section className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
+    <section className="bg-[#009933] text-white min-h-[100dvh]">
+      <div className="flex justify-between items-center px-8 py-4 bg-white">
+        <Image src={Logo} alt="Company Logo" className="" />
+
+        <Button className="bg-[#093]">Join the Waitlist</Button>
+      </div>
+      <div className="container mx-auto px-4 pt-16 md:pt-24 lg:pt-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
+          <div className="flex flex-col justify-center">
             <h1 className="text-4xl font-bold mb-4 md:text-5xl lg:text-6xl">
               Join the Waitlist
             </h1>
@@ -42,16 +50,14 @@ export default function Component() {
           </div>
           <div className="hidden md:block">
             <Image
-              src="/delivery.jpg"
-              width={500}
-              height={400}
+              src={Delivery}
               alt="Food Delivery"
               className="rounded-lg"
               style={{ aspectRatio: "500/400", objectFit: "cover" }}
             />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
