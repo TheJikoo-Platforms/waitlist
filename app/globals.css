@@ -66,22 +66,14 @@
 @media (min-width: 768px) {
   .waitlist_bg {
     background: #272f2b;
-    background: linear-gradient(
-      180deg,
-      #272f2b 60%,
-      rgba(0, 153, 51, 0.4) 100%
-    );
+    background: linear-gradient(180deg, #272f2b 60%, #093 100%);
   }
 }
 
 @media (max-width: 767px) {
   .waitlist_bg {
     background: #272f2b;
-    background: linear-gradient(
-      180deg,
-      #272f2b 60%,
-      rgba(0, 153, 51, 0.4) 100%
-    );
+    background: linear-gradient(180deg, #272f2b 60%, #093 100%);
   }
 }
 @-webkit-keyframes autofill {

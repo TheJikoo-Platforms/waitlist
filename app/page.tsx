@@ -98,7 +98,7 @@ export default function Waitlist() {
       <div className="md:hidden rounded-[20px] h-[200px] sm:h-[250px] max-sm400:h-[180px] overflow-hidden mb-8 sm400:mb-9 px-6">
         <Image
           alt="waitList_Image"
-          height={400}
+          height={200}
           width={400}
           src={"/waitlist1.png"}
           className=" h-full w-full rounded-[20px]  "

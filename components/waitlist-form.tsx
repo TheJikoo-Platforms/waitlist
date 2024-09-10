@@ -44,7 +44,7 @@ export const WaitlistForm = () => {
   return (
     <>
       <form action={onSubmit}>
-        <div className="flex flex-col sm:flex-col w-full md:w-[32.5rem] gap-y-6 gap-x-4 items-center">
+        <div className="flex flex-col sm:flex-col w-full md:w-[32.5rem] gap-y-3 gap-x-4 items-center">
           <div className="bg-white rounded-dm flex  w-full overflow-hidden py-3.5 ">
             <div className="pr-4  pl-5 border-r border-r-black/40">
               <User2 className="text-white fill-primary " />
@@ -55,7 +55,7 @@ export const WaitlistForm = () => {
               type="text"
               name="name"
               placeholder="Full Name"
-              className=" bg-white text-black grow outline-none rounded-r-dm px-4 text-sm md:text-lg lg:text-xl waitlist-input"
+              className=" bg-white text-black grow outline-none rounded-r-dm px-4 text-base md:text-lg lg:text-xl waitlist-input"
               required
             />
           </div>
@@ -69,12 +69,12 @@ export const WaitlistForm = () => {
               type="email"
               name="email"
               placeholder="Email address"
-              className=" bg-white text-black grow outline-none rounded-r-dm px-4 text-sm md:text-lg lg:text-xl waitlist-input"
+              className=" bg-white text-black grow outline-none rounded-r-dm px-4 text-base md:text-lg lg:text-xl waitlist-input"
               required
             />
           </div>
           <Button
-            className="max-sm:w-full h-12 disabled:cursor-not-allowed py-4 max-sm:h-auto max-sm:rounded-dm"
+            className="max-sm:w-full h-12 disabled:cursor-not-allowed mt-3 py-4 max-sm:h-auto max-sm:rounded-dm"
             disabled={isPending}
           >
             GET EARLY ACCESS
