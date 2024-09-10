@@ -95,13 +95,13 @@ export const metadata: Metadata = {
 export default function Waitlist() {
   return (
     <div className="h-dvh  waitlist_bg text-white  pt-14 max-sm400:pt-10 md:pt-20 overflow-hidden w-full  relative flex flex-col">
-      <div className="md:hidden rounded-[20px] h-[200px] sm:h-[250px] max-sm400:h-[180px] overflow-hidden mb-8 sm400:mb-9 px-6">
+      <div className="md:hidden rounded-[20px] h-[200px] sm:h-[250px] overflow-hidden mb-8 sm400:mb-9 px-6">
         <Image
           alt="waitList_Image"
           height={200}
           width={400}
           src={"/waitlist1.png"}
-          className=" h-full w-full rounded-[20px]  "
+          className=" h-full w-full rounded-[20px]"
           quality={100}
           priority
         />
