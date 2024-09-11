@@ -8,43 +8,57 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { useRef, useState, useTransition } from "react";
+import { useRef, useState } from "react";
 import { AddToWaitlist } from "@/actions/waitlist";
+import { Loader } from "./loader";
 
 export const WaitlistForm = () => {
   const [success, setSuccess] = useState(false);
-  const [isPending, startTransition] = useTransition();
+  const [isLoading, setIsLoading] = useState(false);
   const ref = useRef<HTMLInputElement | null>(null);
 
   const onSubmit = async (formData: FormData) => {
-    startTransition(() => {
-      AddToWaitlist(formData).then((res) => {
-        if (res.success) {
-          if (ref.current) ref.current.value = "";
-          const nameInput = document.querySelector(
-            'input[name="name"]'
-          ) as HTMLInputElement;
-          const emailInput = document.querySelector(
-            'input[name="email"]'
-          ) as HTMLInputElement;
-          if (nameInput) nameInput.value = "";
-          if (emailInput) emailInput.value = "";
-          setSuccess(true);
-          return;
-        }
-        if (res.error) {
-          enqueueSnackbar(res.error, {
-            variant: "error",
-            anchorOrigin: { vertical: "top", horizontal: "right" },
-          });
-          return;
-        }
+    setIsLoading(true);
+    try {
+      const res = await AddToWaitlist(formData);
+
+      if (res.success) {
+        if (ref.current) ref.current.value = "";
+        const nameInput = document.querySelector(
+          'input[name="name"]'
+        ) as HTMLInputElement;
+        const emailInput = document.querySelector(
+          'input[name="email"]'
+        ) as HTMLInputElement;
+        if (nameInput) nameInput.value = "";
+        if (emailInput) emailInput.value = "";
+        setSuccess(true);
+      } else if (res.error) {
+        enqueueSnackbar(res.error, {
+          variant: "error",
+          anchorOrigin: { vertical: "top", horizontal: "right" },
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      enqueueSnackbar("An error occurred. Please try again.", {
+        variant: "error",
+        anchorOrigin: { vertical: "top", horizontal: "right" },
       });
-    });
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    onSubmit(formData);
+  };
+
   return (
     <>
-      <form action={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col sm:flex-col w-full md:w-[32.5rem] gap-y-3 gap-x-4 items-center pb-6">
           <div className="bg-white rounded-dm flex  w-full overflow-hidden py-3.5 ">
             <div className="pr-4  pl-5 border-r border-r-black/40">
@@ -75,14 +89,17 @@ export const WaitlistForm = () => {
             />
           </div>
           <Button
+            type="submit"
             className="max-sm:w-full h-12 disabled:cursor-not-allowed mt-3 py-4 max-sm:h-auto max-sm:rounded-dm"
-            disabled={isPending}
+            disabled={isLoading}
           >
-            GET EARLY ACCESS
+            {isLoading ? "SUBMITTING..." : "GET EARLY ACCESS"}
           </Button>
         </div>
       </form>
       <AlertSuccess open={success} onClose={() => setSuccess(false)} />
+
+      {isLoading && <Loader />}
     </>
   );
 };

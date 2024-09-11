@@ -94,7 +94,7 @@ export const metadata: Metadata = {
 
 export default function Waitlist() {
   return (
-    <div className="  waitlist_bg text-white  pt-14 max-sm400:pt-10 md:pt-20 overflow-hidden w-full  relative flex flex-col">
+    <div className="min-h-dvh  waitlist_bg text-white  pt-14 max-sm400:pt-10 md:pt-20 overflow-hidden w-full  relative flex flex-col">
       <div className="md:hidden rounded-[20px] h-[200px] sm:h-[250px] overflow-hidden mb-8 sm400:mb-9 px-6">
         <Image
           alt="waitList_Image"
