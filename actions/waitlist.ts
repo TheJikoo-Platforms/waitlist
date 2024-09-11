@@ -16,7 +16,7 @@ export const AddToWaitlist = async (
     }
 
     const response = await fetch(
-      "https://jikoo-backend.onrender.com/waitlists",
+      "https://jikoo-backend.onrender.com/v1/waitlists",
       {
         method: "POST",
         headers: {

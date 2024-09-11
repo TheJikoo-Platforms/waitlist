@@ -11,23 +11,24 @@ import { Button } from "@/components/ui/button";
 import { useRef, useState, useTransition } from "react";
 import { AddToWaitlist } from "@/actions/waitlist";
 
-// import { useToast } from "@/hooks/use-toast";
-
 export const WaitlistForm = () => {
   const [success, setSuccess] = useState(false);
   const [isPending, startTransition] = useTransition();
   const ref = useRef<HTMLInputElement | null>(null);
 
-  // const { toast } = useToast();
-
-  // AddToWaitlist function
-
-  // onSubmit function
   const onSubmit = async (formData: FormData) => {
     startTransition(() => {
       AddToWaitlist(formData).then((res) => {
         if (res.success) {
           if (ref.current) ref.current.value = "";
+          const nameInput = document.querySelector(
+            'input[name="name"]'
+          ) as HTMLInputElement;
+          const emailInput = document.querySelector(
+            'input[name="email"]'
+          ) as HTMLInputElement;
+          if (nameInput) nameInput.value = "";
+          if (emailInput) emailInput.value = "";
           setSuccess(true);
           return;
         }
