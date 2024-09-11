@@ -119,11 +119,11 @@ export default function Waitlist() {
       </div>
       <div className="text-center flex md:items-center flex-col px-6 z-10">
         <h1 className="font-bold text-center text-[28px]/[32px] sm:text-4xl md:text-5xl lg:text-6xl/[68px] max-sm400:text-2xl">
-          Rewards come to those <br /> who are{" "}
-          <span className="text-primary">patient.</span>
+          Get Notified First <br /> When We{" "}
+          <span className="text-primary">Launch.</span>
         </h1>
         <h2 className="md:w-[460px] text-sm sm:text-lg md:text-xl max-sm:max-w-[231px] mt-4 sm400:mt-6 mx-auto mb-6 md:mb-8 ">
-          Join us as we redefine the way Nigerians experience food
+          Join our waitlist to be the first ro receive updates about our launch
         </h2>
         <WaitlistForm />
       </div>
