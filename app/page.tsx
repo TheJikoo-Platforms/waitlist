@@ -59,7 +59,7 @@ export default function Waitlist() {
           <span className="text-primary">Launch.</span>
         </h1>
         <h2 className="md:w-[460px] text-sm sm:text-lg md:text-xl max-sm:max-w-[231px] mt-4 sm400:mt-6 mx-auto mb-6 md:mb-8 ">
-          Join our waitlist to be the first ro receive updates about our launch
+          Join our waitlist to be the first to receive updates about our launch
         </h2>
         <WaitlistForm />
       </div>
