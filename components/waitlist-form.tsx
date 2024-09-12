@@ -62,7 +62,7 @@ export const WaitlistForm = () => {
         <div className="flex flex-col sm:flex-col w-full md:w-[32.5rem] gap-y-3 gap-x-4 items-center pb-6">
           <div className="bg-white rounded-dm flex  w-full overflow-hidden py-3.5 ">
             <div className="pr-4  pl-5 border-r border-r-black/40">
-              <User2 className="text-white fill-primary " />
+              <User2 className="text-white fill-[#093] " />
             </div>
             <div className="" />
             <input
@@ -76,7 +76,7 @@ export const WaitlistForm = () => {
           </div>
           <div className="bg-white rounded-dm flex  w-full overflow-hidden py-3.5 ">
             <div className="pr-4  pl-5 border-r border-r-black/40">
-              <Mail className="text-white fill-primary " />
+              <Mail className="text-white fill-[#093] " />
             </div>
             <div className="" />
             <input
